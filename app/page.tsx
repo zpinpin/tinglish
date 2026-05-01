@@ -251,7 +251,7 @@ function SubtitlePanel({ hit, allHits, instanceIdx, keyword, onPrevInstance, onN
         <div style={{ flex: 1, minWidth: 0 }}>
           {verified ? (
             <p style={{ margin: 0, fontSize: 15, lineHeight: 1.7, color: "#111" }}>
-              <Highlight text={hit.content} kw={keyword} />
+               <Highlight text={hit.content ?? ""} kw={keyword} />
             </p>
           ) : (
             <p style={{ margin: 0, fontSize: 13, color: "#aaa", fontStyle: "italic" }}>

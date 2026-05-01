@@ -506,7 +506,7 @@ export default function Page() {
   }, [isConfigured]);
 
   const go = () => runSearch(query, filter);
-  const example = (w) => { setQuery(w); runSearch(w, filter); };
+  const example = (w: string) => { setQuery(w); runSearch(w, filter); };
 
   const current = hits[globalIdx];
 

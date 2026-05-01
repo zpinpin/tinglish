@@ -3,23 +3,13 @@ import { useState } from 'react';
 // This pulls from the folder you created
 import { vocabData } from '../data/chinese_data'; 
 
-interface VocabItem {
-  bvid: string;
-  timestamp: number;
-  text: string;
-}
-
-interface VocabData {
-  [key: string]: VocabItem[];
-}
-
 export default function BilibiliLearner() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [activeClip, setActiveClip] = useState(null);
 
   const searchWord = () => {
-    const found = (vocabData as VocabData)[query] || [];
+    const found = vocabData[query] || [];
     setResults(found);
     if (found.length > 0) setActiveClip(found[0]);
   };

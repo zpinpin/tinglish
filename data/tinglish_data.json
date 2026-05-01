@@ -1,0 +1,26 @@
+// /data/chinese_data.js
+export const vocabData = {
+  "你好": [
+    { 
+      id: 1, 
+      bvid: "BV1gj411x77X", 
+      timestamp: 12, 
+      text: "大家**你好**，欢迎来到我的频道。" 
+    },
+    { 
+      id: 2, 
+      bvid: "BV1uT4y1P7vj", 
+      timestamp: 45, 
+      text: "见到老师要记得说**你好**。" 
+    }
+  ],
+  "谢谢": [
+    { 
+      id: 3, 
+      bvid: "BV1PA411n7U6", 
+      timestamp: 88, 
+      text: "非常**谢谢**大家的关注。" 
+    }
+  ]
+};
+

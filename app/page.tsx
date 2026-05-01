@@ -497,8 +497,11 @@ export default function Page() {
         });
       }
     } catch (e) {
-      if (!ctrl.signal.aborted)
-        setStatus({ type: "error", msg: `出错：${e.message}` });
+      if (!ctrl.signal.aborted) {
+        // Check if it's a real Error object to access .message
+        const errorMessage = e instanceof Error ? e.message : "未知错误";
+        setStatus({ type: "error", msg: `出错：${errorMessage}` });
+      }
     }
   }, [isConfigured]);
 

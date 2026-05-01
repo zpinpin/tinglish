@@ -156,9 +156,10 @@ async function apiSearch(kw: string, filter: string): Promise<Video[]> {
         clearTimeout(timer);
         return videos;
       } catch (e) {
-        clearTimeout(timer);
-        errors.push(`${base}: ${e.message}`);
-        throw e;
+        clearTimeout(timer); 
+        const errorMessage = e instanceof Error ? e.message : String(e);
+        errors.push(`${base}: ${errorMessage}`);
+        throw e; 
       }
     })
   ).catch(() => null);

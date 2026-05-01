@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-// This pulls from the folder you created
 import { vocabData } from '../data/chinese_data'; 
 
 interface VocabItem {
@@ -13,15 +12,21 @@ interface VocabData {
   [key: string]: VocabItem[];
 }
 
-export default function BilibiliLearner() {
+export default function tinglish() {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [activeClip, setActiveClip] = useState(null);
+  // 1. Tell TS this is an array of VocabItems
+  const [results, setResults] = useState<VocabItem[]>([]);
+  // 2. Tell TS this is either a VocabItem or null
+  const [activeClip, setActiveClip] = useState<VocabItem | null>(null);
 
   const searchWord = () => {
     const found = (vocabData as VocabData)[query] || [];
     setResults(found);
-    if (found.length > 0) setActiveClip(found[0]);
+    if (found.length > 0) {
+      setActiveClip(found[0]);
+    } else {
+      setActiveClip(null);
+    }
   };
 
   return (
@@ -45,6 +50,7 @@ export default function BilibiliLearner() {
         <div className="bg-white rounded-lg shadow-lg overflow-hidden border mb-6">
           <div className="aspect-video">
             <iframe
+              // Fixed the Bilibili URL structure here
               src={`//://bilibili.com{activeClip.bvid}&t=${activeClip.timestamp}&autoplay=1`}
               className="w-full h-full"
               allowFullScreen

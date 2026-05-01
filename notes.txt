@@ -1,0 +1,5 @@
+ 1055  ssh -T git@github.com\n
+ 1058  ssh -T git@github.com\n
+ 1064  ssh -T git@github.com
+ 1065  git remote set-url origin git@github.com:zpinpin/tinglish.git
+ 1066  git push -u origin main
